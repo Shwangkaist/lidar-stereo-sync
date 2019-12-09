@@ -1,0 +1,8 @@
+<launch>
+  <node pkg="cvpr20url" type="sync_node" name="sync_node"/>
+  <node pkg="cvpr20url" type="ouster_standard_time_node" name="ouster_standard_time_node"/>
+  <node pkg="cvpr20url" type="rgbd_standard_time_node" name="rgbd_standard_time_node"/>
+  <node pkg="cvpr20url" type="filter_node" name="filter_node"/>
+  <node pkg="cvpr20url" type="visualization_node" name="visualization_node"/>
+  <node name="republish" pkg="image_transport" type="republish" args="compressedDepth in:=/rgbd_standard_time/camera/aligned_depth_to_color/image_raw raw out:=/depth"/>
+</launch>
